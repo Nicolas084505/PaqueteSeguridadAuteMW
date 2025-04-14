@@ -40,9 +40,10 @@ jobs:
 
       - name: Build and Pack NuGet package
         run: dotnet pack PaqueteSeguridadAuteMW/Seguridad/SeguridadMW.Middleware/SeguridadMW.Middleware.csproj -p:Version='${{ steps.gitversion.outputs.SemVer }}' -c Release
-
+      - name: Check bin/Release content
+        run: ls -la PaqueteSeguridadAuteMW/Seguridad/SeguridadMW.Middleware/bin/Release/
       - name: Upload NuGet package to GitHub
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: nugetPackage
           path: PaqueteSeguridadAuteMW/Seguridad/SeguridadMW.Middleware/bin/Release/*.nupkg
