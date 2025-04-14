@@ -39,7 +39,7 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Build and Pack NuGet package
-        run: dotnet pack Seguridad/SeguridadMW.Middleware/SeguridadMW.Middleware.csproj -p:Version='${{ steps.gitversion.outputs.SemVer }}' -c Release
+        run: dotnet pack PaqueteSeguridadAuteMW/Seguridad/SeguridadMW.Middleware/SeguridadMW.Middleware.csproj -p:Version='${{ steps.gitversion.outputs.SemVer }}' -c Release
 
       - name: Upload NuGet package to GitHub
         uses: actions/upload-artifact@v2
